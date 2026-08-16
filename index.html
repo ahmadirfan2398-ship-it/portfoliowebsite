@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmad (Ahmoo) — Web Developer</title>
+<script>
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'light' || t === 'dark') {
+      document.documentElement.setAttribute('data-theme', t);
+    }
+  } catch (e) {}
+</script>
+<meta name="description" content="Ahmad (Ahmoo) — Web Developer based in Lahore, Pakistan. Frontend, backend, full-stack websites and web apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- SCROLL PROGRESS BAR -->
+<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-brand">
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="brand-mark">AH/01</span>
+    <span class="nav-name">Ahmad <span class="brand-nick">(Ahmoo)</span></span>
+    <span class="nav-status"><span class="status-dot"></span><span class="mono-label">Available</span></span>
+  </div>
+  <nav class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-btn" id="moreBtn" aria-haspopup="true" aria-expanded="false">
+        More
+        <svg class="icon icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="nav-dropdown-menu" id="moreMenu">
+        <a href="#">Résumé</a>
+        <a href="#">Blog</a>
+        <a href="#">Uses / Setup</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-right">
+    <div class="nav-auth">
+      <button class="btn btn-primary nav-auth-signup" id="navAuthBtn" type="button" data-mode="signup">Sign Up</button>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark / light mode">
+      <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+    </button>
+    <a href="#contact" class="btn btn-primary nav-cta">Let's Talk</a>
+  </div>
+</header>
+
+<!-- SIDEBAR MENU -->
+<div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+<aside class="sidebar" id="sidebar" aria-hidden="true" aria-label="Sidebar menu">
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <nav class="sidebar-links">
+    <a href="#top"><span class="mono-label">00</span> Top</a>
+    <a href="#work"><span class="mono-label">01</span> Work</a>
+    <a href="#about"><span class="mono-label">02</span> About</a>
+    <a href="#skills"><span class="mono-label">03</span> Skills</a>
+    <a href="#faq"><span class="mono-label">04</span> FAQ</a>
+    <a href="#contact"><span class="mono-label">05</span> Contact</a>
+
+    <div class="sidebar-more">
+      <button class="sidebar-more-btn" id="sidebarMoreBtn" aria-haspopup="true" aria-expanded="false">
+        <span class="mono-label">06</span> More
+        <svg class="icon icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="sidebar-more-links" id="sidebarMoreLinks">
+        <a href="#">Résumé</a>
+        <a href="#">Blog</a>
+        <a href="#">Uses / Setup</a>
+      </div>
+    </div>
+  </nav>
+  <a href="#contact" class="btn btn-primary sidebar-cta">Let's Talk</a>
+</aside>
+
+<!-- SIDEBAR SECTION DOTS (desktop only) -->
+<nav class="side-dots" aria-label="Section navigation">
+  <a href="#top" class="dot active" data-section="top"><span>Top</span></a>
+  <a href="#work" class="dot" data-section="work"><span>Work</span></a>
+  <a href="#about" class="dot" data-section="about"><span>About</span></a>
+  <a href="#skills" class="dot" data-section="skills"><span>Skills</span></a>
+  <a href="#faq" class="dot" data-section="faq"><span>FAQ</span></a>
+  <a href="#contact" class="dot" data-section="contact"><span>Contact</span></a>
+</nav>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg class="progress-ring" viewBox="0 0 44 44" aria-hidden="true">
+    <circle class="progress-ring-bg" cx="22" cy="22" r="19"></circle>
+    <circle class="progress-ring-fg" id="progressRing" cx="22" cy="22" r="19"></circle>
+  </svg>
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-top">
+    <div class="hero-frame">
+      <span class="bracket bracket-tl"></span>
+      <span class="bracket bracket-tr"></span>
+      <span class="bracket bracket-bl"></span>
+      <span class="bracket bracket-br"></span>
+
+      <p class="mono-label hero-eyebrow">PORTFOLIO — FIG. 2026</p>
+      <h1 class="hero-title">
+        <span class="line-a">Building websites</span>
+        <span class="line-b">that are <span class="accent">fast</span>, clean, and solid.</span>
+      </h1>
+      <p class="hero-sub">
+        I'm Ahmoo — a web developer
+        based in Lahore, Pakistan. I build fast, responsive websites and
+        web apps from scratch, front to back.
+      </p>
+
+      <div class="badge-row">
+        <span class="badge">Available for Work</span>
+        <span class="badge badge-outline">3+ Yrs Experience</span>
+        <span class="badge badge-outline">Full-Stack</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">View Work <span class="arrow">→</span></a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <span class="bracket bracket-tl"></span>
+      <span class="bracket bracket-br"></span>
+      <img src="images/ahmad.jpeg" alt="Ahmad" class="hero-img">
+      <span class="hero-photo-tag mono-label">AH — LHR/PK</span>
+    </div>
+  </div>
+
+  <div class="hero-meta mono-label">
+    <span>SCALE 1:1</span>
+    <span>LOC: LAHORE, PK</span>
+    <span>STATUS: AVAILABLE</span>
+  </div>
+</section>
+
+<!-- STATS / COUNTERS -->
+<section class="stats">
+  <div class="stat" data-target="24">
+    <span class="stat-number mono-label"><span class="count">0</span>+</span>
+    <span class="stat-label">Projects Shipped</span>
+  </div>
+  <div class="stat" data-target="18">
+    <span class="stat-number mono-label"><span class="count">0</span></span>
+    <span class="stat-label">Happy Clients</span>
+  </div>
+  <div class="stat" data-target="3">
+    <span class="stat-number mono-label"><span class="count">0</span>+</span>
+    <span class="stat-label">Years Experience</span>
+  </div>
+  <div class="stat" data-target="100">
+    <span class="stat-number mono-label"><span class="count">0</span>%</span>
+    <span class="stat-label">On-Time Delivery</span>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="section">
+  <div class="section-head">
+    <span class="mono-label">01 / SELECTED WORK</span>
+    <h2>Projects</h2>
+  </div>
+
+  <div class="project-list" id="projectList">
+
+    <article class="project">
+      <span class="bracket bracket-tl"></span><span class="bracket bracket-br"></span>
+      <div class="project-index mono-label">P.01</div>
+      <div class="project-body">
+        <h3>Ledger — Expense Tracking App</h3>
+        <p>A full-stack budgeting app with real-time sync across devices. Built the React Native frontend and a Node.js/Express API backed by PostgreSQL.</p>
+        <div class="tags">
+          <span class="tag">React Native</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">2025</span>
+        </div>
+        <button class="project-link mono-label" data-modal="modal-ledger">VIEW →</button>
+      </div>
+      <div class="project-thumb">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=60" alt="Ledger app screenshot" loading="lazy">
+      </div>
+    </article>
+
+    <article class="project">
+      <span class="bracket bracket-tl"></span><span class="bracket bracket-br"></span>
+      <div class="project-index mono-label">P.02</div>
+      <div class="project-body">
+        <h3>Northlane — E-commerce Platform</h3>
+        <p>Headless storefront for a furniture retailer, built with Next.js and a custom checkout flow. Focused on performance and accessibility — cut load time by 40%.</p>
+        <div class="tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">Stripe API</span>
+          <span class="tag">2024</span>
+        </div>
+        <button class="project-link mono-label" data-modal="modal-northlane">VIEW →</button>
+      </div>
+      <div class="project-thumb">
+        <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&w=600&q=60" alt="Northlane storefront screenshot" loading="lazy">
+      </div>
+    </article>
+
+    <article class="project">
+      <span class="bracket bracket-tl"></span><span class="bracket bracket-br"></span>
+      <div class="project-index mono-label">P.03</div>
+      <div class="project-body">
+        <h3>Fieldnote — Internal Dashboard</h3>
+        <p>An internal admin dashboard for a mid-size SaaS team, built with React and a REST API on top of MongoDB. Handles auth, roles, and live reporting.</p>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">2024</span>
+        </div>
+        <button class="project-link mono-label" data-modal="modal-fieldnote">VIEW →</button>
+      </div>
+      <div class="project-thumb">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=60" alt="Fieldnote dashboard screenshot" loading="lazy">
+      </div>
+    </article>
+
+  </div>
+
+  <div class="infinite-loader" id="infiniteLoader">
+    <span class="loader-spinner" aria-hidden="true"></span>
+    <span class="mono-label">Loading more projects…</span>
+  </div>
+  <p class="infinite-end mono-label" id="infiniteEnd">— End of projects —</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section section-about">
+  <div class="section-head">
+    <span class="mono-label">02 / ABOUT</span>
+    <h2>About Me</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-photo">
+      <span class="bracket bracket-tl"></span><span class="bracket bracket-br"></span>
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=60" alt="Web development" class="about-img">
+    </div>
+    <div class="about-text">
+      <p class="about-lead">Designing and building fast, reliable websites for real people — from idea to launch.</p>
+      <p>I build websites and web apps — from simple landing pages to full products with logins, databases, and dashboards. I care about clean code, fast load times, and things working right the first time.</p>
+      <p>My process starts with understanding what the site actually needs to do, then building it in small, testable pieces — frontend, backend, and everything that connects them.</p>
+      <p>When I'm not coding, I'm usually learning a new tool, reading docs, or fixing something that didn't need fixing.</p>
+      <div class="badge-row">
+        <span class="badge">HTML / CSS</span>
+        <span class="badge badge-outline">JavaScript</span>
+        <span class="badge badge-outline">React</span>
+        <span class="badge badge-outline">Node.js</span>
+        <span class="badge badge-outline">MongoDB</span>
+      </div>
+      <a href="#" class="btn btn-ghost">Download Résumé</a>
+      <p class="about-current"><span class="status-dot"></span>Currently available for freelance projects &amp; full-time roles</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS + SERVICES TABS -->
+<section id="skills" class="section">
+  <div class="section-head">
+    <span class="mono-label">03 / CAPABILITIES</span>
+    <h2>Toolkit &amp; Services</h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-block">
+      <span class="mono-label">01</span>
+      <h3>Frontend</h3>
+      <ul>
+        <li>HTML / CSS / JavaScript</li>
+        <li>React / Next.js</li>
+        <li>Tailwind CSS</li>
+        <li>Responsive Design</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <span class="mono-label">02</span>
+      <h3>Backend</h3>
+      <ul>
+        <li>Node.js / Express</li>
+        <li>REST &amp; GraphQL APIs</li>
+        <li>MongoDB / PostgreSQL</li>
+        <li>Authentication &amp; Authorization</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <span class="mono-label">03</span>
+      <h3>Tools &amp; Workflow</h3>
+      <ul>
+        <li>Git / GitHub</li>
+        <li>Docker</li>
+        <li>Figma (handoff)</li>
+        <li>Vercel / Netlify</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs-block">
+    <div class="tabs-nav" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-build">Build</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-fix">Fix &amp; Improve</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-maintain">Maintain</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-build" role="tabpanel">
+      <p>New websites and web apps built from the ground up — from a single landing page to a full product with a database, login system, and admin dashboard.</p>
+    </div>
+    <div class="tab-panel" id="tab-fix" role="tabpanel">
+      <p>Fixing bugs, improving performance, and upgrading old codebases. If your site is slow, broken, or hard to update, I'll clean it up and get it running properly.</p>
+    </div>
+    <div class="tab-panel" id="tab-maintain" role="tabpanel">
+      <p>Ongoing maintenance — updates, small feature additions, monitoring, and keeping dependencies current so your site stays fast and secure.</p>
+    </div>
+  </div>
+
+  <!-- DESIGN PLAYGROUND -->
+  <div class="playground-block">
+    <div class="playground-head">
+      <span class="mono-label">DESIGN PLAYGROUND</span>
+      <h3>Live preview — drag the sliders</h3>
+    </div>
+    <div class="playground">
+      <div class="playground-card" id="playgroundCard">
+        <span class="mono-label">AH/01 — LHR</span>
+        <h4>Interactive demo</h4>
+        <p>The card updates live as you drag.</p>
+      </div>
+      <div class="playground-controls">
+        <label class="playground-label" for="radiusRange">Border radius <span id="radiusVal">12px</span></label>
+        <input type="range" id="radiusRange" min="0" max="50" value="12" step="1">
+        <label class="playground-label" for="brightnessRange">Brightness <span id="brightnessVal">100%</span></label>
+        <input type="range" id="brightnessRange" min="50" max="150" value="100" step="5">
+        <label class="playground-label" for="grayscaleRange">Grayscale <span id="grayscaleVal">0%</span></label>
+        <input type="range" id="grayscaleRange" min="0" max="100" value="0" step="5">
+        <button class="btn btn-ghost playground-reset" id="playgroundReset" type="button">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSWORD STRENGTH -->
+  <div class="password-block" id="authDemo">
+    <div class="playground-head">
+      <span class="mono-label">PASSWORD STRENGTH</span>
+      <h3>Live strength check</h3>
+    </div>
+    <div class="password-demo">
+      <label class="playground-label" for="authName">Name</label>
+      <input type="text" id="authName" class="password-input" placeholder="Your name" autocomplete="off">
+      <label class="playground-label" for="authEmail">Email</label>
+      <input type="email" id="authEmail" class="password-input" placeholder="you@example.com" autocomplete="off">
+      <label class="playground-label" for="passwordInput">Password</label>
+      <input type="password" id="passwordInput" class="password-input" placeholder="Type a password..." autocomplete="off">
+      <div class="password-meter" id="passwordMeter" data-score="0" aria-hidden="true">
+        <span class="meter-bar"></span><span class="meter-bar"></span><span class="meter-bar"></span><span class="meter-bar"></span>
+      </div>
+      <p class="password-message mono-label" id="passwordMessage">Start typing to check strength…</p>
+      <div class="auth-actions">
+        <button class="btn btn-primary" id="signupBtn" type="button">Sign Up</button>
+        <button class="btn btn-ghost" id="loginBtn" type="button">Login</button>
+        <button class="btn btn-ghost is-hidden" id="logoutBtn" type="button">Logout</button>
+      </div>
+      <p class="auth-note mono-label" id="authNote" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ / ACCORDION -->
+<section id="faq" class="section">
+  <div class="section-head">
+    <span class="mono-label">04 / FAQ</span>
+    <h2>Common questions</h2>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-item">
+      <button class="accordion-btn" aria-expanded="false">
+        <span>What's your typical project timeline?</span>
+        <svg class="icon icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-panel">
+        <p>Small sites usually take 1–2 weeks. Full-stack apps with a backend and database typically run 4–8 weeks, depending on scope.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" aria-expanded="false">
+        <span>Do you work with clients outside Pakistan?</span>
+        <svg class="icon icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-panel">
+        <p>Yes — I work remotely with clients worldwide and I'm comfortable coordinating across time zones.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" aria-expanded="false">
+        <span>What do you need from me to get started?</span>
+        <svg class="icon icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-panel">
+        <p>A short brief of what you're trying to build, any references you like, and rough timeline/budget. We'll refine scope together from there.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-btn" aria-expanded="false">
+        <span>Do you offer ongoing support after launch?</span>
+        <svg class="icon icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-panel">
+        <p>Yes — monthly maintenance packages are available, or I can hand off clean, documented code if you'd rather manage it yourself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section section-contact">
+  <div class="contact-intro">
+    <span class="mono-label">05 / CONTACT</span>
+    <h2>Let's build<br>something solid.</h2>
+    <p>Open to freelance projects and full-time roles.</p>
+    <a href="mailto:ahmadirfan2398@gmail.com" class="contact-email">ahmadirfan2398@gmail.com</a>
+    <div class="contact-links">
+      <a href="https://github.com/ahmoo" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.61-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg> GitHub</a>
+      <a href="https://www.linkedin.com/in/ahmoo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 11-4-.002 2 2 0 014 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-6.9-5.94-8.68-2.91V8.48z"/></svg> LinkedIn</a>
+      <a href="https://www.fiverr.com/ahmoo" target="_blank" rel="noopener" aria-label="Fiverr"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 8h9V6a1 1 0 011-1h2V2h-3a4 4 0 00-4 4v2H6v3h3v10h4V11h3l1-3h-4V7a1 1 0 011-1h2V3h-2a4 4 0 00-4 4v1H4v3z"/></svg> Fiverr</a>
+      <a href="https://x.com/ahmoo" target="_blank" rel="noopener" aria-label="Twitter / X"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.3 8.3L23 22h-6.8l-5.3-6.9L4.8 22H2l7.8-8.9L1.5 2h7l4.8 6.3L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg> Twitter/X</a>
+    </div>
+  </div>
+
+  <form class="contact-form" id="contactForm">
+    <span class="bracket bracket-tl"></span>
+    <span class="bracket bracket-tr"></span>
+    <span class="bracket bracket-bl"></span>
+    <span class="bracket bracket-br"></span>
+
+    <p class="mono-label form-eyebrow">SEND A MESSAGE</p>
+
+    <div class="form-row">
+      <label for="fname">Name</label>
+      <input type="text" id="fname" name="name" placeholder="Your name" required>
+    </div>
+    <div class="form-row">
+      <label for="femail">Email</label>
+      <input type="email" id="femail" name="email" placeholder="you@example.com" required>
+    </div>
+    <div class="form-row">
+      <label for="fmsg">Message</label>
+      <textarea id="fmsg" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary form-submit">Send Message <span class="arrow">→</span></button>
+    <p class="form-note mono-label" id="formNote"></p>
+  </form>
+</section>
+
+<footer class="footer mono-label">
+  <span>© 2026 AHMAD (@AHMOO)</span>
+  <span>BUILT IN LAHORE, PK</span>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal-ledger" role="dialog" aria-modal="true">
+    <button class="modal-close" aria-label="Close">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <span class="mono-label">P.01</span>
+    <h3>Ledger — Expense Tracking App</h3>
+    <p>A full-stack budgeting app with real-time sync across devices. The frontend is React Native with an offline-first cache; the backend is a Node.js/Express API on PostgreSQL, handling auth, categorized transactions, and monthly summaries.</p>
+    <div class="tags"><span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div>
+  </div>
+
+  <div class="modal" id="modal-northlane" role="dialog" aria-modal="true">
+    <button class="modal-close" aria-label="Close">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <span class="mono-label">P.02</span>
+    <h3>Northlane — E-commerce Platform</h3>
+    <p>A headless storefront for a furniture retailer, built with Next.js and Stripe for checkout. Optimized images and server-side rendering brought load time down 40%, and the custom checkout flow reduced friction at payment.</p>
+    <div class="tags"><span class="tag">Next.js</span><span class="tag">Stripe API</span><span class="tag">Vercel</span></div>
+  </div>
+
+  <div class="modal" id="modal-fieldnote" role="dialog" aria-modal="true">
+    <button class="modal-close" aria-label="Close">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <span class="mono-label">P.03</span>
+    <h3>Fieldnote — Internal Dashboard</h3>
+    <p>An internal admin dashboard for a mid-size SaaS team, built with React on a REST API backed by MongoDB. Includes role-based auth, live reporting widgets, and audit logs for team activity.</p>
+    <div class="tags"><span class="tag">React</span><span class="tag">MongoDB</span><span class="tag">Express</span></div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

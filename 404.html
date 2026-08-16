@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found | Ahmad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .error-frame {
+    position: relative;
+    padding: 3.5rem 2.5rem;
+    border: 1px solid var(--border);
+    max-width: 480px;
+  }
+  .error-code {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(4rem, 12vw, 6rem);
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .error-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .error-text { color: var(--ink-muted); margin-bottom: 2rem; }
+</style>
+</head>
+<body>
+
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<section class="error-page">
+  <div class="error-frame">
+    <span class="bracket bracket-tl"></span>
+    <span class="bracket bracket-tr"></span>
+    <span class="bracket bracket-bl"></span>
+    <span class="bracket bracket-br"></span>
+
+    <p class="mono-label">ERR / 404</p>
+    <div class="error-code">404</div>
+    <h1 class="error-title">This page doesn't exist.</h1>
+    <p class="error-text">The page you're looking for was moved, renamed, or never existed in the first place.</p>
+    <a href="index.html" class="btn btn-primary">Back to Home <span class="arrow">→</span></a>
+  </div>
+</section>
+
+</body>
+</html>
