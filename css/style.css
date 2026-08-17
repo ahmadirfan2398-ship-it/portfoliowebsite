@@ -431,7 +431,7 @@ ul { list-style: none; }
   width: min(300px, 84vw);
   background: var(--bg-raised);
   border-right: 1px solid var(--border);
-  padding: 5rem var(--gutter) 2rem;
+  padding: 6rem var(--gutter) 2rem;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 200;
@@ -463,33 +463,49 @@ ul { list-style: none; }
 .sidebar-links a {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.95rem 0;
+  gap: 0.8rem;
+  padding: 1.1rem 0;
   border-bottom: 1px solid var(--border);
   font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--ink-muted);
-  transition: color 0.2s ease, padding-left 0.2s ease;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease, padding-left 0.2s ease, border-color 0.2s ease;
 }
-.sidebar-links a:hover, .sidebar-links a:focus-visible { color: var(--ink); padding-left: 0.5rem; }
-.sidebar-links .mono-label { color: var(--blue); font-size: 10px; }
+.sidebar-links a:hover, .sidebar-links a:focus-visible {
+  color: var(--blue);
+  padding-left: 0.6rem;
+  border-color: var(--blue);
+}
+.sidebar-links .mono-label {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(91, 140, 255, 0.1);
+  padding: 2px 7px;
+  border-radius: 3px;
+  border: 1px solid rgba(91, 140, 255, 0.25);
+}
 
 .sidebar-more { border-bottom: 1px solid var(--border); }
 .sidebar-more-btn {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.8rem;
   width: 100%;
-  padding: 0.95rem 0;
+  padding: 1.1rem 0;
   background: none;
   border: none;
-  color: var(--ink-muted);
+  color: var(--ink);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, padding-left 0.2s ease;
 }
-.sidebar-more-btn:hover { color: var(--ink); }
+.sidebar-more-btn:hover { color: var(--blue); padding-left: 0.6rem; }
 .sidebar-more-btn .icon-chevron { margin-left: auto; }
 .sidebar-more-btn[aria-expanded="true"] .icon-chevron { transform: rotate(180deg); }
 
@@ -499,7 +515,7 @@ ul { list-style: none; }
   transition: max-height 0.3s ease;
 }
 .sidebar-more-links.is-open { max-height: 200px; }
-.sidebar-more-links a { border-bottom: none; padding: 0.7rem 0 0.7rem 1.5rem; }
+.sidebar-more-links a { border-bottom: none; padding: 0.8rem 0 0.8rem 1.5rem; font-size: 0.95rem; }
 
 .sidebar-cta { margin-top: auto; justify-content: center; }
 
