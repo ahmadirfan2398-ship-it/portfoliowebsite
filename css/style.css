@@ -522,6 +522,7 @@ ul { list-style: none; }
 
 @media (max-width: 860px) {
   .nav-status { display: none; }
+  .sidebar-close { top: 3.5rem; }
 }
 
 @media (max-width: 1080px) {
