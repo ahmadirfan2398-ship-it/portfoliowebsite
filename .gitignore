@@ -1,4 +1,6 @@
 node_modules/
+.netlify/
+netlify/functions/node_modules/
 .env
 npm-debug.log*
 .DS_Store
